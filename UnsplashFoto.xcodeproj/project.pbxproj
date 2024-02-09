@@ -7,23 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86424D0E2B76436500F9E520 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D0D2B76436500F9E520 /* MainViewController.swift */; };
+		86424D102B76439900F9E520 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D0F2B76439900F9E520 /* FavoriteViewController.swift */; };
+		86424D172B7646BB00F9E520 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86424D142B7646BB00F9E520 /* Roboto-Bold.ttf */; };
+		86424D182B7646BB00F9E520 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86424D152B7646BB00F9E520 /* Roboto-Medium.ttf */; };
+		86424D192B7646BB00F9E520 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86424D162B7646BB00F9E520 /* Roboto-Regular.ttf */; };
+		86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D1B2B76471200F9E520 /* UIFont + Extension.swift */; };
+		86424D1E2B764A1500F9E520 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D1D2B764A1500F9E520 /* UIColor + Extensions.swift */; };
+		86424D202B764C1000F9E520 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D1F2B764C1000F9E520 /* NetworkService.swift */; };
+		86424D222B764CD100F9E520 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D212B764CD100F9E520 /* MainPresenter.swift */; };
+		86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D232B764CDF00F9E520 /* MainInteractor.swift */; };
+		86424D262B764CEF00F9E520 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D252B764CEF00F9E520 /* MainWorker.swift */; };
 		86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BD02B75398100FF3628 /* AppDelegate.swift */; };
 		86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BD22B75398100FF3628 /* SceneDelegate.swift */; };
-		86491BD52B75398100FF3628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BD42B75398100FF3628 /* ViewController.swift */; };
-		86491BD82B75398100FF3628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86491BD62B75398100FF3628 /* Main.storyboard */; };
 		86491BDA2B75398200FF3628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86491BD92B75398200FF3628 /* Assets.xcassets */; };
 		86491BDD2B75398200FF3628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86491BDB2B75398200FF3628 /* LaunchScreen.storyboard */; };
+		86491BF52B7557C100FF3628 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BF42B7557C100FF3628 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86424D0D2B76436500F9E520 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		86424D0F2B76439900F9E520 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		86424D142B7646BB00F9E520 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		86424D152B7646BB00F9E520 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		86424D162B7646BB00F9E520 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		86424D1B2B76471200F9E520 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		86424D1D2B764A1500F9E520 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		86424D1F2B764C1000F9E520 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		86424D212B764CD100F9E520 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		86424D232B764CDF00F9E520 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		86424D252B764CEF00F9E520 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		86491BCD2B75398100FF3628 /* UnsplashFoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashFoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86491BD02B75398100FF3628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86491BD22B75398100FF3628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86491BD42B75398100FF3628 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		86491BD72B75398100FF3628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86491BD92B75398200FF3628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86491BDC2B75398200FF3628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86491BDE2B75398200FF3628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86491BF42B7557C100FF3628 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86424D112B76439D00F9E520 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				86424D0D2B76436500F9E520 /* MainViewController.swift */,
+				86424D212B764CD100F9E520 /* MainPresenter.swift */,
+				86424D232B764CDF00F9E520 /* MainInteractor.swift */,
+				86424D252B764CEF00F9E520 /* MainWorker.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		86424D122B7643A300F9E520 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				86424D0F2B76439900F9E520 /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		86424D132B7646AF00F9E520 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86424D142B7646BB00F9E520 /* Roboto-Bold.ttf */,
+				86424D152B7646BB00F9E520 /* Roboto-Medium.ttf */,
+				86424D162B7646BB00F9E520 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		86424D1A2B7646FA00F9E520 /* Repeatable */ = {
+			isa = PBXGroup;
+			children = (
+				86424D1B2B76471200F9E520 /* UIFont + Extension.swift */,
+				86424D1D2B764A1500F9E520 /* UIColor + Extensions.swift */,
+			);
+			path = Repeatable;
+			sourceTree = "<group>";
+		};
 		86491BC42B75398100FF3628 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +114,83 @@
 		86491BCF2B75398100FF3628 /* UnsplashFoto */ = {
 			isa = PBXGroup;
 			children = (
-				86491BD02B75398100FF3628 /* AppDelegate.swift */,
-				86491BD22B75398100FF3628 /* SceneDelegate.swift */,
-				86491BD42B75398100FF3628 /* ViewController.swift */,
-				86491BD62B75398100FF3628 /* Main.storyboard */,
-				86491BD92B75398200FF3628 /* Assets.xcassets */,
-				86491BDB2B75398200FF3628 /* LaunchScreen.storyboard */,
-				86491BDE2B75398200FF3628 /* Info.plist */,
+				86491BEB2B7555E800FF3628 /* Application */,
+				86491BEE2B75561100FF3628 /* APIManagers */,
+				86491BF12B75561100FF3628 /* Scenes */,
+				86491BF32B75579200FF3628 /* NavigationModule */,
+				86491BED2B75561100FF3628 /* UIConstants */,
+				86491BF22B75562300FF3628 /* SupportingFiles */,
 			);
 			path = UnsplashFoto;
+			sourceTree = "<group>";
+		};
+		86491BEB2B7555E800FF3628 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				86491BD02B75398100FF3628 /* AppDelegate.swift */,
+				86491BD22B75398100FF3628 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		86491BED2B75561100FF3628 /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				86424D1A2B7646FA00F9E520 /* Repeatable */,
+			);
+			path = UIConstants;
+			sourceTree = "<group>";
+		};
+		86491BEE2B75561100FF3628 /* APIManagers */ = {
+			isa = PBXGroup;
+			children = (
+				86491BEF2B75561100FF3628 /* Netwroks */,
+				86491BF02B75561100FF3628 /* APIModels */,
+			);
+			path = APIManagers;
+			sourceTree = "<group>";
+		};
+		86491BEF2B75561100FF3628 /* Netwroks */ = {
+			isa = PBXGroup;
+			children = (
+				86424D1F2B764C1000F9E520 /* NetworkService.swift */,
+			);
+			path = Netwroks;
+			sourceTree = "<group>";
+		};
+		86491BF02B75561100FF3628 /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIModels;
+			sourceTree = "<group>";
+		};
+		86491BF12B75561100FF3628 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				86424D112B76439D00F9E520 /* Main */,
+				86424D122B7643A300F9E520 /* Favorite */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		86491BF22B75562300FF3628 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				86424D132B7646AF00F9E520 /* Fonts */,
+				86491BDE2B75398200FF3628 /* Info.plist */,
+				86491BD92B75398200FF3628 /* Assets.xcassets */,
+				86491BDB2B75398200FF3628 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		86491BF32B75579200FF3628 /* NavigationModule */ = {
+			isa = PBXGroup;
+			children = (
+				86491BF42B7557C100FF3628 /* MainTabBarController.swift */,
+			);
+			path = NavigationModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +251,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86424D182B7646BB00F9E520 /* Roboto-Medium.ttf in Resources */,
 				86491BDD2B75398200FF3628 /* LaunchScreen.storyboard in Resources */,
+				86424D192B7646BB00F9E520 /* Roboto-Regular.ttf in Resources */,
 				86491BDA2B75398200FF3628 /* Assets.xcassets in Resources */,
-				86491BD82B75398100FF3628 /* Main.storyboard in Resources */,
+				86424D172B7646BB00F9E520 /* Roboto-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +266,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86491BD52B75398100FF3628 /* ViewController.swift in Sources */,
+				86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */,
 				86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */,
+				86424D202B764C1000F9E520 /* NetworkService.swift in Sources */,
+				86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */,
 				86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */,
+				86424D222B764CD100F9E520 /* MainPresenter.swift in Sources */,
+				86491BF52B7557C100FF3628 /* MainTabBarController.swift in Sources */,
+				86424D1E2B764A1500F9E520 /* UIColor + Extensions.swift in Sources */,
+				86424D0E2B76436500F9E520 /* MainViewController.swift in Sources */,
+				86424D262B764CEF00F9E520 /* MainWorker.swift in Sources */,
+				86424D102B76439900F9E520 /* FavoriteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		86491BD62B75398100FF3628 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86491BD72B75398100FF3628 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86491BDB2B75398200FF3628 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +417,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UnsplashFoto/Info.plist;
+				INFOPLIST_FILE = UnsplashFoto/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,10 +447,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UnsplashFoto/Info.plist;
+				INFOPLIST_FILE = UnsplashFoto/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
