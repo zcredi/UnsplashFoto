@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "favoriteTabBar.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
