@@ -9,9 +9,6 @@ import Foundation
 
 struct HTTPMethod {
     static let get = HTTPMethod(rawValue: "GET")
-    static let post = HTTPMethod(rawValue: "POST")
-    static let put = HTTPMethod(rawValue: "PUT")
-    static let delete = HTTPMethod(rawValue: "DELETE")
 
     let rawValue: String
 }
@@ -21,7 +18,6 @@ enum NetworkError: Error {
     case badResponse
     case badRequest
     case badDecode
-    case badEncode
     case unknown(String)
 }
 
@@ -38,7 +34,6 @@ protocol NetworkProtocol {
 final class NetworkService: NetworkProtocol {
     
     private let decoder = JSONDecoder()
-    private let encoder = JSONEncoder()
         
     private var session: URLSession {
         let configuration = URLSessionConfiguration.default
@@ -63,15 +58,6 @@ final class NetworkService: NetworkProtocol {
     ) {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        
-        if let body = body {
-            do {
-                request.httpBody = try encoder.encode(body)
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            } catch {
-                return completion(.failure(.badEncode))
-            }
-        }
         
         headers?.forEach { key, value in
             request.setValue(value, forHTTPHeaderField: key)
@@ -104,8 +90,6 @@ final class NetworkService: NetworkProtocol {
             default:
                 completion(.failure(.unknown("Дефолтная ошибка, что поделать...")))
             }
-        }
-        // Запускаем задачу
-        .resume()
+        }.resume()
     }
 }
