@@ -18,6 +18,9 @@
 		86424D222B764CD100F9E520 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D212B764CD100F9E520 /* MainPresenter.swift */; };
 		86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D232B764CDF00F9E520 /* MainInteractor.swift */; };
 		86424D262B764CEF00F9E520 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D252B764CEF00F9E520 /* MainWorker.swift */; };
+		86424D282B76627200F9E520 /* UnsplashPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D272B76627200F9E520 /* UnsplashPhotoModel.swift */; };
+		86424D2C2B7667C000F9E520 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D2B2B7667C000F9E520 /* MainView.swift */; };
+		86424D2E2B7667CD00F9E520 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D2D2B7667CD00F9E520 /* MainCell.swift */; };
 		86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BD02B75398100FF3628 /* AppDelegate.swift */; };
 		86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BD22B75398100FF3628 /* SceneDelegate.swift */; };
 		86491BDA2B75398200FF3628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86491BD92B75398200FF3628 /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 		86424D212B764CD100F9E520 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		86424D232B764CDF00F9E520 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		86424D252B764CEF00F9E520 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
+		86424D272B76627200F9E520 /* UnsplashPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoModel.swift; sourceTree = "<group>"; };
+		86424D2B2B7667C000F9E520 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		86424D2D2B7667CD00F9E520 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		86491BCD2B75398100FF3628 /* UnsplashFoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashFoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86491BD02B75398100FF3628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86491BD22B75398100FF3628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 		86424D112B76439D00F9E520 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				86424D292B7667A200F9E520 /* Views */,
 				86424D0D2B76436500F9E520 /* MainViewController.swift */,
 				86424D212B764CD100F9E520 /* MainPresenter.swift */,
 				86424D232B764CDF00F9E520 /* MainInteractor.swift */,
@@ -93,6 +100,23 @@
 				86424D1D2B764A1500F9E520 /* UIColor + Extensions.swift */,
 			);
 			path = Repeatable;
+			sourceTree = "<group>";
+		};
+		86424D292B7667A200F9E520 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86424D2A2B7667AE00F9E520 /* Cells */,
+				86424D2B2B7667C000F9E520 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86424D2A2B7667AE00F9E520 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86424D2D2B7667CD00F9E520 /* MainCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		86491BC42B75398100FF3628 = {
@@ -161,6 +185,7 @@
 		86491BF02B75561100FF3628 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
+				86424D272B76627200F9E520 /* UnsplashPhotoModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -267,11 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */,
+				86424D2C2B7667C000F9E520 /* MainView.swift in Sources */,
 				86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */,
 				86424D202B764C1000F9E520 /* NetworkService.swift in Sources */,
 				86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */,
 				86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */,
 				86424D222B764CD100F9E520 /* MainPresenter.swift in Sources */,
+				86424D282B76627200F9E520 /* UnsplashPhotoModel.swift in Sources */,
+				86424D2E2B7667CD00F9E520 /* MainCell.swift in Sources */,
 				86491BF52B7557C100FF3628 /* MainTabBarController.swift in Sources */,
 				86424D1E2B764A1500F9E520 /* UIColor + Extensions.swift in Sources */,
 				86424D0E2B76436500F9E520 /* MainViewController.swift in Sources */,

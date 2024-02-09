@@ -12,7 +12,7 @@ protocol MainDisplayLogic: AnyObject {
 }
 
 final class MainViewController: UIViewController, MainDisplayLogic {
-    var interactor: HomeBusinessLogic?
+    var interactor: MainBusinessLogic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
