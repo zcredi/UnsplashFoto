@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UnsplashPhotoModel: Codable {
+struct UnsplashPhoto: Codable {
     let id: String
     let slug: String?
     let createdAt: String

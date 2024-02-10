@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol MainWorkerProtocol {
-    func fetchRandomPhotos(completion: @escaping (Result<[UnsplashPhotoModel], NetworkError>) -> Void)
+    func fetchRandomPhotos(completion: @escaping (Result<[UnsplashPhoto], NetworkError>) -> Void)
 }
 
 final class MainWorker: MainWorkerProtocol {
@@ -19,15 +20,18 @@ final class MainWorker: MainWorkerProtocol {
         self.networkService = networkService
     }
     
-    func fetchRandomPhotos(completion: @escaping (Result<[UnsplashPhotoModel], NetworkError>) -> Void) {
-            guard let url = URL(string: "https://api.unsplash.com/photos/random?client_id=8z-SXwpvXB9oEoCHCPAeCxXL4iSsKn_GFtp6C7yedyc") else {
-                completion(.failure(.badRequest))
-                return
-            }
+    func fetchRandomPhotos(completion: @escaping (Result<[UnsplashPhoto], NetworkError>) -> Void) {
+            let url = "https://api.unsplash.com/photos/random?client_id=\(Configuration.unsplashAccessKey)&count=20"
+            let request = AF.request(url)
 
-            networkService.fetchData(url: url) { (result: Result<[UnsplashPhotoModel], NetworkError>) in
-                completion(result)
+            request.responseDecodable(of: [UnsplashPhoto].self) { response in
+                switch response.result {
+                case .success(let photos):
+                    completion(.success(photos))
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    completion(.failure(.unknown(error.localizedDescription)))
+                }
             }
         }
-    
 }

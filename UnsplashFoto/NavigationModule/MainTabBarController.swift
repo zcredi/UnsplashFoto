@@ -8,10 +8,21 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-
+    
+    private let sceneFactory: SceneFactory
+    
+    init(sceneFactory: SceneFactory) {
+        self.sceneFactory = sceneFactory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTabBar()
         setupItems()
     }
@@ -25,7 +36,7 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupItems() {
-        let mainVC = MainViewController()
+        let mainVC = sceneFactory.makeHomeScene()
         let favoriteVC = FavoriteViewController()
         
         setViewControllers([mainVC, favoriteVC], animated: true)
