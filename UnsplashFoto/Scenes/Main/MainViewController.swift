@@ -23,6 +23,7 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         setupViews()
         setConstraints()
         setDelegates()
+        print(photoViewModels)
     }
     
     override func viewWillAppear(_ animated: Bool) {

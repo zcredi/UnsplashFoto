@@ -8,26 +8,26 @@
 import Foundation
 
 struct UnsplashPhoto: Codable {
-    let id: String
+    let id: String?
     let slug: String?
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: String?
+    let updatedAt: String?
     let promotedAt: String?
-    let width: Int
-    let height: Int
-    let color: String
+    let width: Int?
+    let height: Int?
+    let color: String?
     let blurHash: String?
     let description: String?
     let altDescription: String?
-    let urls: PhotoUrls
-    let links: PhotoLinks
-    let likes: Int
-    let likedByUser: Bool
+    let urls: PhotoUrls?
+    let links: PhotoLinks?
+    let likes: Int?
+    let likedByUser: Bool?
     let user: User
     let exif: Exif?
     let location: Location?
-    let views: Int
-    let downloads: Int
+    let views: Int?
+    let downloads: Int?
     let tags: [Tag]?
     let tagsPreview: [TagPreview]?
 
@@ -76,7 +76,7 @@ struct User: Codable {
     let username: String
     let name: String
     let first_name: String
-    let last_name: String
+    let last_name: String?
     let twitter_username: String?
     let portfolio_url: String?
     let bio: String?

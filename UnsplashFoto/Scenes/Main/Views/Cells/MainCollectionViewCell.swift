@@ -12,7 +12,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
     //MARK: - UI
     private let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "testPhoto")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

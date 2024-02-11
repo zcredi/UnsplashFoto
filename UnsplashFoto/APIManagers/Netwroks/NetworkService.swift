@@ -47,7 +47,6 @@ final class NetworkService: NetworkProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    // Этот метод получает данные из сети и декодирует их в указанный тип модели
     func fetchData<T: Codable>(
         url: URL,
         httpMethod: HTTPMethod = .get,
