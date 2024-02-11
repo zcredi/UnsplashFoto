@@ -32,7 +32,7 @@ final class MainView: UIView {
     }()
     
     
-    //MARK: - Lifecycle
+    //MARK: - init(_:)
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: Constants.idMainCell)

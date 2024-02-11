@@ -16,6 +16,7 @@ final class DefaultSceneFactory: SceneFactory {
         let viewController = MainViewController()
         let interactor = MainInteractor()
         let presenter = MainPresenter()
+        let router = MainRouter(viewController: viewController)
         
         let networkManager = NetworkService()
         let worker = MainWorker(networkService: networkManager)
@@ -24,7 +25,9 @@ final class DefaultSceneFactory: SceneFactory {
         interactor.presenter = presenter
         interactor.worker = worker
         presenter.viewController = viewController
-
+        viewController.router = router
+        router.viewController = viewController
+        
         return viewController
     }
 }

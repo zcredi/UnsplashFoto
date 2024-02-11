@@ -18,7 +18,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    //MARK: - Lifecycle
+    //MARK: - init(_:)
     override init(frame: CGRect) {
         super.init(frame: frame)
         

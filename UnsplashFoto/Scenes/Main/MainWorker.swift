@@ -16,6 +16,7 @@ final class MainWorker: MainWorkerProtocol {
     
     private let networkService: NetworkService
     
+    //MARK: - init(_:)
     init(networkService: NetworkService) {
         self.networkService = networkService
     }

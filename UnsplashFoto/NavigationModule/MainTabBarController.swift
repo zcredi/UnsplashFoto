@@ -37,17 +37,14 @@ final class MainTabBarController: UITabBarController {
     
     private func setupItems() {
         let mainVC = sceneFactory.makeHomeScene()
+        let mainNavController = UINavigationController(rootViewController: mainVC)
+        mainNavController.tabBarItem = UITabBarItem(title: "Main", image: UIImage(named: "mainTabBar"), tag: 0)
+        
         let favoriteVC = FavoriteViewController()
+        let favoriteNavController = UINavigationController(rootViewController: favoriteVC)
+        favoriteNavController.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(named: "favoriteTabBar"), tag: 1)
         
-        setViewControllers([mainVC, favoriteVC], animated: true)
-        
-        guard let items = tabBar.items else { return }
-        
-        items[0].title = "Main"
-        items[1].title = "Favorite"
-        
-        items[0].image = UIImage(named: "mainTabBar")
-        items[1].image = UIImage(named: "favoriteTabBar")
+        setViewControllers([mainNavController, favoriteNavController], animated: true)
         
         UITabBarItem.appearance().setTitleTextAttributes([.font : UIFont.robotoBold16() as Any], for: .normal)
     }
