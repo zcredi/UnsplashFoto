@@ -13,14 +13,28 @@ protocol MainPresentationLogic {
 
 struct PhotoViewModel {
     let url: String
+    let profilImage: String
+    let name: String
+    let createdAt: String
+    let location: String
+    let downloads: Int
 }
 
 final class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
     
     func presentFetchedPhotos(_ photos: [UnsplashPhoto]) {
-        let viewModels = photos.map { photo -> PhotoViewModel in
-            return PhotoViewModel(url: photo.urls!.thumb)
+        let viewModels = photos.compactMap { photo -> PhotoViewModel? in
+            guard let thumbURL = photo.urls?.thumb else { return nil }
+            
+            return PhotoViewModel(
+                url: thumbURL,
+                profilImage: photo.user.profile_image.large,
+                name: photo.user.name,
+                createdAt: photo.createdAt ?? "",
+                location: photo.location?.city ?? "",
+                downloads: photo.downloads ?? 0
+            )
         }
         viewController?.displayFetchedPhotos(viewModels)
     }

@@ -13,6 +13,7 @@ protocol MainDisplayLogic: AnyObject {
 
 final class MainViewController: UIViewController, MainDisplayLogic {
     var interactor: MainBusinessLogic?
+    var router: MainRoutingLogic?
     
     var mainView = MainView()
     var photoViewModels = [PhotoViewModel]()
@@ -23,12 +24,8 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         setupViews()
         setConstraints()
         setDelegates()
-        print(photoViewModels)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         fetchRandomPhotoData()
+        router = MainRouter(viewController: self)
     }
     
     private func fetchRandomPhotoData() {
@@ -113,7 +110,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let selectedPhoto = photoViewModels[indexPath.row]
+        router?.routeToDetail(with: selectedPhoto)
     }
 }
 
