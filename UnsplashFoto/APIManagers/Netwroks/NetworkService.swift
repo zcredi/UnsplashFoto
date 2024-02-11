@@ -25,7 +25,6 @@ protocol NetworkProtocol {
     func fetchData<T: Codable>(
         url: URL,
         httpMethod: HTTPMethod,
-        body: Encodable?,
         headers: [String: String]?,
         completion: @escaping (Result<T, NetworkError>) -> Void
     )
@@ -48,11 +47,9 @@ final class NetworkService: NetworkProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    // Этот метод получает данные из сети и декодирует их в указанный тип модели
     func fetchData<T: Codable>(
         url: URL,
         httpMethod: HTTPMethod = .get,
-        body: Encodable? = nil,
         headers: [String: String]? = nil,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
@@ -65,30 +62,36 @@ final class NetworkService: NetworkProtocol {
         
         // Создаем задачу для получения данных
         session.dataTask(with: request) { data, response, error in
-            // Проверяем, есть ли ошибка или данные
-            guard let data = data, error == nil else {
+            if let error = error {
+                print("Ошибка запроса: \(error.localizedDescription)")
+                return completion(.failure(.unknown("Ошибка запроса: \(error.localizedDescription)")))
+            }
+
+            guard let data = data, !data.isEmpty else {
+                print("Данные отсутствуют или пустые")
                 return completion(.failure(.badData))
             }
-            
+
             guard let response = response as? HTTPURLResponse else {
+                print("Ответ не является HTTPURLResponse")
                 return completion(.failure(.badResponse))
             }
-            
-            let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            
+
             switch response.statusCode {
             case 200...299:
                 do {
                     let decodedData = try self.decoder.decode(T.self, from: data)
                     completion(.success(decodedData))
-                } catch let error {
-                    print(error.localizedDescription)
+                } catch {
+                    print("Ошибка декодирования: \(error.localizedDescription)")
                     completion(.failure(.badDecode))
                 }
-            case 400:
+            case 400...499:
+                print("Ошибка запроса, статус код: \(response.statusCode)")
                 completion(.failure(.badRequest))
             default:
-                completion(.failure(.unknown("Дефолтная ошибка, что поделать...")))
+                print("Неизвестная ошибка, статус код: \(response.statusCode)")
+                completion(.failure(.unknown("Неизвестная ошибка, статус код: \(response.statusCode)")))
             }
         }.resume()
     }
