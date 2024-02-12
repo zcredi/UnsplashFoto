@@ -11,6 +11,7 @@ final class MainTabBarController: UITabBarController {
     
     private let sceneFactory: SceneFactory
     
+    //MARK: - init(_:)
     init(sceneFactory: SceneFactory) {
         self.sceneFactory = sceneFactory
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +21,7 @@ final class MainTabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,14 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.primaryDark
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        }
+        
         tabBar.backgroundColor = .primaryDark
         tabBar.tintColor = .primaryBlueAccent
         tabBar.unselectedItemTintColor = .white

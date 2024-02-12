@@ -17,6 +17,8 @@ final class MainViewController: UIViewController, MainDisplayLogic {
     
     var mainView = MainView()
     var photoViewModels = [PhotoViewModel]()
+    var filteredViewModels = [PhotoViewModel]()
+    let searchController = UISearchController(searchResultsController: nil)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         setupViews()
         setConstraints()
         setDelegates()
+        setupSearchController()
         fetchRandomPhotoData()
         router = MainRouter(viewController: self)
     }
@@ -49,6 +52,15 @@ final class MainViewController: UIViewController, MainDisplayLogic {
             self.photoViewModels = viewModels
         }
     }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+    }
 }
 
 //MARK: - setConstraints()
@@ -67,13 +79,13 @@ extension MainViewController {
 //MARK: - UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoViewModels.count
+        return searchController.isActive ? filteredViewModels.count : photoViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainView.Constants.idMainCell, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         
-        let viewModel = photoViewModels[indexPath.row]
+        let viewModel = searchController.isActive ? filteredViewModels[indexPath.row] : photoViewModels[indexPath.row]
         cell.configure(with: viewModel.url)
         
         return cell
@@ -111,6 +123,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedPhoto = photoViewModels[indexPath.row]
+        searchController.isActive = false
         router?.routeToDetail(with: selectedPhoto)
     }
 }
@@ -119,5 +132,19 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: MainViewDelegate {
     func refreshDataForCoinView(_ coinView: MainView) {
         fetchRandomPhotoData()
+    }
+}
+
+//MARK: - UISearchResultsUpdating
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+            filteredViewModels = photoViewModels
+            mainView.collectionView.reloadData()
+            return
+        }
+        
+        filteredViewModels = photoViewModels.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        mainView.collectionView.reloadData()
     }
 }
