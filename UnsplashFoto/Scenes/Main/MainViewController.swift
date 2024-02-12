@@ -86,7 +86,7 @@ extension MainViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainView.Constants.idMainCell, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         
         let viewModel = searchController.isActive ? filteredViewModels[indexPath.row] : photoViewModels[indexPath.row]
-        cell.configure(with: viewModel.url)
+        cell.configure(with: viewModel.imageUrl)
         
         return cell
     }
@@ -128,9 +128,9 @@ extension MainViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - CoinViewDelegate
+//MARK: - MainViewDelegate
 extension MainViewController: MainViewDelegate {
-    func refreshDataForCoinView(_ coinView: MainView) {
+    func refreshDataForCoinView(_ mainView: MainView) {
         fetchRandomPhotoData()
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		863412042B7A1D1700E636BE /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863412032B7A1D1700E636BE /* FavoriteView.swift */; };
+		863412072B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863412062B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift */; };
+		863412092B7A380E00E636BE /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863412082B7A380E00E636BE /* DetailInteractor.swift */; };
+		8634120B2B7A45E100E636BE /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634120A2B7A45E100E636BE /* FavoritePresenter.swift */; };
 		86424D0E2B76436500F9E520 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D0D2B76436500F9E520 /* MainViewController.swift */; };
 		86424D102B76439900F9E520 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86424D0F2B76439900F9E520 /* FavoriteViewController.swift */; };
 		86424D172B7646BB00F9E520 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86424D142B7646BB00F9E520 /* Roboto-Bold.ttf */; };
@@ -39,6 +43,10 @@
 
 /* Begin PBXFileReference section */
 		463C18220CD35CEEB13A990A /* Pods_UnsplashFoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsplashFoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		863412032B7A1D1700E636BE /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		863412062B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		863412082B7A380E00E636BE /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		8634120A2B7A45E100E636BE /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		86424D0D2B76436500F9E520 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		86424D0F2B76439900F9E520 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		86424D142B7646BB00F9E520 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -92,6 +100,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		863412022B7A1CED00E636BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				863412052B7A1D1D00E636BE /* Cells */,
+				863412032B7A1D1700E636BE /* FavoriteView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		863412052B7A1D1D00E636BE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				863412062B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		86424D112B76439D00F9E520 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +133,9 @@
 		86424D122B7643A300F9E520 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				863412022B7A1CED00E636BE /* Views */,
 				86424D0F2B76439900F9E520 /* FavoriteViewController.swift */,
+				8634120A2B7A45E100E636BE /* FavoritePresenter.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -277,6 +304,7 @@
 				869F0F772B78D1CA0008BFDB /* Views */,
 				869F0F752B78D1C20008BFDB /* DetailViewController.swift */,
 				869F0F822B7914A50008BFDB /* DetailPresenter.swift */,
+				863412082B7A380E00E636BE /* DetailInteractor.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -416,9 +444,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */,
+				863412092B7A380E00E636BE /* DetailInteractor.swift in Sources */,
 				86424D2C2B7667C000F9E520 /* MainView.swift in Sources */,
 				86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */,
 				869F0F7E2B78E4960008BFDB /* UILabel + Extension.swift in Sources */,
+				863412072B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift in Sources */,
 				86424D202B764C1000F9E520 /* NetworkService.swift in Sources */,
 				86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */,
 				86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */,
@@ -437,6 +467,8 @@
 				869F0F7A2B78D1E90008BFDB /* DetailView.swift in Sources */,
 				86424D262B764CEF00F9E520 /* MainWorker.swift in Sources */,
 				86424D102B76439900F9E520 /* FavoriteViewController.swift in Sources */,
+				8634120B2B7A45E100E636BE /* FavoritePresenter.swift in Sources */,
+				863412042B7A1D1700E636BE /* FavoriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
