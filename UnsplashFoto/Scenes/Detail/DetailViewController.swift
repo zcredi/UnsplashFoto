@@ -15,7 +15,7 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
     enum Constants {
         static let detailViewTopSpacing: CGFloat = 80.0
         static let detailViewSideSpacing: CGFloat = 20.0
-        static let detailViewHeightSpacing: CGFloat = 200.0
+        static let detailViewHeightSpacing: CGFloat = 370.0
     }
     
     var presenter: DetailPresentationLogic?
@@ -39,9 +39,10 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
     func displayPhotoDetails(_ viewModel: DetailViewModel) {
         detailView.authorImageView.loadImage(from: viewModel.profilImage)
         detailView.authorNameLabel.text = viewModel.name
+        detailView.photoImageView.loadImage(from: viewModel.imageUrl)
         detailView.dateOfCreationLabel.text = ("Дата создания: \(formatDateString(viewModel.createdAt)) года")
         let locationText = viewModel.location.isEmpty ? "Не указано" : viewModel.location
-           detailView.locationLabel.text = ("Город: \(locationText)")
+        detailView.locationLabel.text = ("Город: \(locationText)")
         detailView.downloadsLabel.text = ("Скачали: \(viewModel.downloads) раз")
     }
 }
@@ -64,11 +65,11 @@ private extension DetailViewController {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         inputFormatter.locale = Locale(identifier: "en_US_POSIX")
-
+        
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "d MMMM yyyy"
         outputFormatter.locale = Locale(identifier: "ru_RU")
-
+        
         if let date = inputFormatter.date(from: dateString) {
             return outputFormatter.string(from: date)
         } else {

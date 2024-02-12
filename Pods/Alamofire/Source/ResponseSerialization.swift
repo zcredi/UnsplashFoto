@@ -478,7 +478,7 @@ public struct URLResponseSerializer: DownloadResponseSerializerProtocol {
 #if swift(>=5.5)
 extension DownloadResponseSerializerProtocol where Self == URLResponseSerializer {
     /// Provides a `URLResponseSerializer` instance.
-    public static var url: URLResponseSerializer { URLResponseSerializer() }
+    public static var imageUrl: URLResponseSerializer { URLResponseSerializer() }
 }
 #endif
 

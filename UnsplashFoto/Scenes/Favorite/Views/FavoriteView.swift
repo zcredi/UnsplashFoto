@@ -1,25 +1,16 @@
 //
-//  MainView.swift
+//  FavoriteView.swift
 //  UnsplashFoto
 //
-//  Created by Владислав on 09.02.2024.
+//  Created by Владислав on 12.02.2024.
 //
-
-import Foundation
 
 import UIKit
 
-protocol MainViewDelegate: AnyObject {
-    func refreshDataForCoinView(_ mainView: MainView)
-}
-
-final class MainView: UIView {
+final class FavoriteView: UIView {
     enum Constants {
-        static let idMainCell: String = "idMainCell"
+        static let idFavoriteCell: String = "idFavoriteCell"
     }
-    
-    weak var delegate: MainViewDelegate?
-    private let refreshControl = UIRefreshControl()
     
     //MARK: - UI
     lazy var collectionView: UICollectionView = {
@@ -31,14 +22,12 @@ final class MainView: UIView {
         return collectionView
     }()
     
-    
     //MARK: - init(_:)
     override init(frame: CGRect) {
         super.init(frame: frame)
-        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: Constants.idMainCell)
+        collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: Constants.idFavoriteCell)
         setupViews()
         setConstraints()
-        addRefreshControl()
     }
     
     required init?(coder: NSCoder) {
@@ -46,13 +35,13 @@ final class MainView: UIView {
     }
     
     private func setupViews() {
-        backgroundColor = .none
+        backgroundColor = .primarySoft
         addSubview(collectionView)
     }
 }
 
 //MARK: - setConstraints()
-private extension MainView {
+private extension FavoriteView {
     private func setConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -61,21 +50,5 @@ private extension MainView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
-    }
-}
-
-//MARK: - RefreshControl
-extension MainView {
-     func addRefreshControl() {
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        collectionView.refreshControl = refreshControl
-    }
-    
-    @objc func refreshData() {
-        delegate?.refreshDataForCoinView(self)
-    }
-    
-    func endRefreshing() {
-        refreshControl.endRefreshing()
     }
 }
