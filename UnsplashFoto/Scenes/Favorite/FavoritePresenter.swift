@@ -7,10 +7,21 @@
 
 import Foundation
 
-protocol FavoriteStateUpdatable: AnyObject {
-   
+protocol FavoritePresentationLogic {
+    func presentFavorites(_ favorites: [FavoriteViewModel])
 }
 
-final class FavoritePresenter {
+struct FavoriteViewModel {
+    let id: String
+    let authorName: String
+    let imageUrl: String
+    let downloads: Int
+}
 
+final class FavoritePresenter: FavoritePresentationLogic {
+     var viewController: DisplayFavoritesLogic?
+    
+    func presentFavorites(_ favorites: [FavoriteViewModel]) {
+        viewController?.displayFavorites(favorites)
+    }
 }

@@ -23,7 +23,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
 
     
     //MARK: - UI
-    private let photoImageView: UIImageView = {
+     let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testPhoto")
         imageView.contentMode = .scaleAspectFill

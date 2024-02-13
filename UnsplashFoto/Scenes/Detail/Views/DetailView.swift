@@ -33,7 +33,7 @@ final class DetailView: UIView {
         return imageView
     }()
     
-    let photoImageView: UIImageView = {
+    lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testPhoto")
         imageView.contentMode = .scaleAspectFill
@@ -72,7 +72,7 @@ final class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
+     func setupViews() {
         backgroundColor = .primaryDark
         layer.cornerRadius = 10
         addSubview(favoriteButton)
@@ -83,14 +83,10 @@ final class DetailView: UIView {
         addSubview(locationLabel)
         addSubview(downloadsLabel)
     }
-    
-    func setFavoriteButtonAction(target: Any, action: Selector) {
-        favoriteButton.addTarget(target, action: action, for: .touchUpInside)
-    }
 }
 
 //MARK: - setConstraints()
-private extension DetailView {
+ extension DetailView {
     func setConstraints() {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         authorImageView.translatesAutoresizingMaskIntoConstraints = false

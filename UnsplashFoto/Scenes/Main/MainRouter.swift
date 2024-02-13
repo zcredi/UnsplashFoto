@@ -22,7 +22,9 @@ final class MainRouter: NSObject, MainRoutingLogic {
     func routeToDetail(with photoViewModel: PhotoViewModel) {
         let detailVC = DetailViewController()
         let presenter = DetailPresenter()
-        detailVC.presenter = presenter
+        let interactor = DetailInteractor()
+        detailVC.interactor = interactor
+        interactor.presenter = presenter
         presenter.viewController = detailVC
         presenter.presentPhotoDetails(with: photoViewModel)
         viewController?.navigationController?.pushViewController(detailVC, animated: true)

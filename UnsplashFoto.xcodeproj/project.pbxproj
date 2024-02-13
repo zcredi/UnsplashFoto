@@ -38,6 +38,8 @@
 		869F0F7E2B78E4960008BFDB /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F7D2B78E4960008BFDB /* UILabel + Extension.swift */; };
 		869F0F802B7912930008BFDB /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F7F2B7912930008BFDB /* MainRouter.swift */; };
 		869F0F832B7914A50008BFDB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F822B7914A50008BFDB /* DetailPresenter.swift */; };
+		86A1A9122B7B6CF300350039 /* FavoritePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1A9112B7B6CF300350039 /* FavoritePhoto.swift */; };
+		86A1A9142B7B6E5400350039 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1A9132B7B6E5400350039 /* FavoritesManager.swift */; };
 		9915F94040F0D63B2C922D6E /* Pods_UnsplashFoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463C18220CD35CEEB13A990A /* Pods_UnsplashFoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		869F0F7D2B78E4960008BFDB /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		869F0F7F2B7912930008BFDB /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		869F0F822B7914A50008BFDB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		86A1A9112B7B6CF300350039 /* FavoritePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhoto.swift; sourceTree = "<group>"; };
+		86A1A9132B7B6E5400350039 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		B8B923249497B13E5087539A /* Pods-UnsplashFoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashFoto.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashFoto/Pods-UnsplashFoto.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FF8A20F3E96882652C35FC /* Pods-UnsplashFoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashFoto.release.xcconfig"; path = "Target Support Files/Pods-UnsplashFoto/Pods-UnsplashFoto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +137,7 @@
 		86424D122B7643A300F9E520 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				86A1A9102B7B6CDB00350039 /* Models */,
 				863412022B7A1CED00E636BE /* Views */,
 				86424D0F2B76439900F9E520 /* FavoriteViewController.swift */,
 				8634120A2B7A45E100E636BE /* FavoritePresenter.swift */,
@@ -247,6 +252,7 @@
 			children = (
 				86491BEF2B75561100FF3628 /* Netwroks */,
 				86491BF02B75561100FF3628 /* APIModels */,
+				86A1A9132B7B6E5400350039 /* FavoritesManager.swift */,
 			);
 			path = APIManagers;
 			sourceTree = "<group>";
@@ -315,6 +321,14 @@
 				869F0F792B78D1E90008BFDB /* DetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		86A1A9102B7B6CDB00350039 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86A1A9112B7B6CF300350039 /* FavoritePhoto.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D6C5D2F289C96A68B368198A /* Pods */ = {
@@ -446,9 +460,11 @@
 				86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */,
 				863412092B7A380E00E636BE /* DetailInteractor.swift in Sources */,
 				86424D2C2B7667C000F9E520 /* MainView.swift in Sources */,
+				86A1A9142B7B6E5400350039 /* FavoritesManager.swift in Sources */,
 				86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */,
 				869F0F7E2B78E4960008BFDB /* UILabel + Extension.swift in Sources */,
 				863412072B7A1D2E00E636BE /* FavoriteCollectionViewCell.swift in Sources */,
+				86A1A9122B7B6CF300350039 /* FavoritePhoto.swift in Sources */,
 				86424D202B764C1000F9E520 /* NetworkService.swift in Sources */,
 				86424D242B764CDF00F9E520 /* MainInteractor.swift in Sources */,
 				86491BD32B75398100FF3628 /* SceneDelegate.swift in Sources */,

@@ -12,6 +12,7 @@ protocol MainPresentationLogic {
 }
 
 struct PhotoViewModel {
+    let id: String
     let imageUrl: String
     let profilImage: String
     let name: String
@@ -28,6 +29,7 @@ final class MainPresenter: MainPresentationLogic {
             guard let thumbURL = photo.urls?.thumb else { return nil }
             
             return PhotoViewModel(
+                id: photo.id ?? "",
                 imageUrl: thumbURL,
                 profilImage: photo.user.profile_image.large,
                 name: photo.user.name,

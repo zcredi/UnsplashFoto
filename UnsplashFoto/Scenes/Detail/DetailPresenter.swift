@@ -22,7 +22,6 @@ protocol DetailPresentationLogic {
 
 final class DetailPresenter: DetailPresentationLogic {
     weak var viewController: DetailDisplayLogic?
-    var favoriteStateUpdater: FavoriteStateUpdatable?
     
     func presentPhotoDetails(with photoViewModel: PhotoViewModel) {
         let viewModel = DetailViewModel(

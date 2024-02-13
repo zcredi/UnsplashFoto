@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailDisplayLogic: AnyObject {
-    func displayPhotoDetails(_ viewModel: DetailViewModel)
+    func displayPhotoDetails(_ viewModel: PhotoViewModel)
 }
 
 final class DetailViewController: UIViewController, DetailDisplayLogic {
@@ -18,10 +18,10 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         static let detailViewHeightSpacing: CGFloat = 370.0
     }
     
-    var presenter: DetailPresentationLogic?
+    var interactor: DetailBusinessLogic?
+    var photoViewModel: PhotoViewModel?
     
     private let detailView = DetailView()
-    var photo: UnsplashPhoto?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,6 +29,7 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         
         setupViews()
         setConstraints()
+        detailView.favoriteButton.addTarget(self, action: #selector(tappedFavoriteButton), for: .touchUpInside)
     }
     
     private func setupViews() {
@@ -36,7 +37,7 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         view.addSubview(detailView)
     }
     
-    func displayPhotoDetails(_ viewModel: DetailViewModel) {
+    func displayPhotoDetails(_ viewModel: PhotoViewModel) {
         detailView.authorImageView.loadImage(from: viewModel.profilImage)
         detailView.authorNameLabel.text = viewModel.name
         detailView.photoImageView.loadImage(from: viewModel.imageUrl)
@@ -44,6 +45,15 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         let locationText = viewModel.location.isEmpty ? "Не указано" : viewModel.location
         detailView.locationLabel.text = ("Город: \(locationText)")
         detailView.downloadsLabel.text = ("Скачали: \(viewModel.downloads) раз")
+    }
+    
+    @objc private func tappedFavoriteButton() {
+        if let photoViewModel = photoViewModel {
+                interactor?.handleFavoriteButtonTap(photoViewModel: photoViewModel)
+                print("Favorite button tapped for photo: \(photoViewModel.id)")
+            } else {
+                print("PhotoViewModel is nil")
+            }
     }
 }
 
