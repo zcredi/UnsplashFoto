@@ -47,11 +47,11 @@ final class MainTabBarController: UITabBarController {
     
     private func setupItems() {
         let mainVC = sceneFactory.makeHomeScene()
-        let mainNavController = UINavigationController(rootViewController: mainVC)
+        let mainNavController = CustomNavigationController(rootViewController: mainVC)
         mainNavController.tabBarItem = UITabBarItem(title: "Main", image: UIImage(named: "mainTabBar"), tag: 0)
         
         let favoriteVC = sceneFactory.makeFavoriteScene()
-        let favoriteNavController = UINavigationController(rootViewController: favoriteVC)
+        let favoriteNavController = CustomNavigationController(rootViewController: favoriteVC)
         favoriteNavController.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(named: "favoriteTabBar"), tag: 1)
         
         setViewControllers([mainNavController, favoriteNavController], animated: true)

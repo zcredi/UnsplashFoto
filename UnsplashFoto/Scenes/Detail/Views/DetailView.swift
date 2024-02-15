@@ -74,7 +74,7 @@ final class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-     func setupViews() {
+    func setupViews() {
         backgroundColor = .primaryDark
         layer.cornerRadius = 10
         addSubview(favoriteButton)
@@ -88,7 +88,7 @@ final class DetailView: UIView {
 }
 
 //MARK: - setConstraints()
- extension DetailView {
+extension DetailView {
     func setConstraints() {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         authorImageView.translatesAutoresizingMaskIntoConstraints = false

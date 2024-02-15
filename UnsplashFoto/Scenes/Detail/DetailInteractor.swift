@@ -17,6 +17,7 @@ final class DetailInteractor: DetailBusinessLogic {
     private let presenter: DetailPresentationLogic
     private var model: PhotoViewModel
     
+    //MARK: - init(_:)
     init(
         presenter: DetailPresentationLogic,
         persistenceManager: PersistenceManager,
@@ -27,6 +28,7 @@ final class DetailInteractor: DetailBusinessLogic {
         self.model = model
     }
     
+    //MARK: - Methods Lifecycle
     func viewDidLoad() {
         self.presenter.presentPhotoDetails(
             with: model,
@@ -46,7 +48,7 @@ final class DetailInteractor: DetailBusinessLogic {
         persistenceManager.saveToFavorites(id: id)
             .map { _ in
                 presenter.setPhoto(isFavorite: true)
-                presenter.showAlert(isFavorite: true) 
+                presenter.showAlert(isFavorite: true)
             }
     }
 }

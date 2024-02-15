@@ -23,7 +23,10 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
     private var id: String?
     private let detailView = DetailView()
     
-    init(interactor: DetailBusinessLogic) {
+    //MARK: - init(_:)
+    init(
+        interactor: DetailBusinessLogic
+    ) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,14 +38,15 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         setConstraints()
         detailView.favoriteButton.addTarget(self, action: #selector(tappedFavoriteButton), for: .touchUpInside)
         interactor.viewDidLoad()
+        setupCustomBackButton()
     }
     
     private func setupViews() {
+        title = "Детальная информация"
         view.backgroundColor = .primarySoft
         view.addSubview(detailView)
     }
@@ -78,6 +82,7 @@ private extension DetailViewController {
     }
 }
 
+//MARK: - Formatter Date
 private extension DetailViewController {
     func formatDateString(_ dateString: String) -> String {
         let inputFormatter = DateFormatter()

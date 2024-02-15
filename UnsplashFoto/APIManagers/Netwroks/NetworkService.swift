@@ -9,7 +9,7 @@ import Foundation
 
 struct HTTPMethod {
     static let get = HTTPMethod(rawValue: "GET")
-
+    
     let rawValue: String
 }
 
@@ -33,7 +33,7 @@ protocol NetworkProtocol {
 final class NetworkService: NetworkProtocol {
     
     private let decoder = JSONDecoder()
-        
+    
     private var session: URLSession {
         let configuration = URLSessionConfiguration.default
         configuration.allowsCellularAccess = true
@@ -59,24 +59,23 @@ final class NetworkService: NetworkProtocol {
         headers?.forEach { key, value in
             request.setValue(value, forHTTPHeaderField: key)
         }
-        
-        // Создаем задачу для получения данных
+
         session.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Ошибка запроса: \(error.localizedDescription)")
                 return completion(.failure(.unknown("Ошибка запроса: \(error.localizedDescription)")))
             }
-
+            
             guard let data = data, !data.isEmpty else {
                 print("Данные отсутствуют или пустые")
                 return completion(.failure(.badData))
             }
-
+            
             guard let response = response as? HTTPURLResponse else {
                 print("Ответ не является HTTPURLResponse")
                 return completion(.failure(.badResponse))
             }
-
+            
             switch response.statusCode {
             case 200...299:
                 do {

@@ -31,7 +31,6 @@ final class MainView: UIView {
         return collectionView
     }()
     
-    
     //MARK: - init(_:)
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,7 +65,7 @@ private extension MainView {
 
 //MARK: - RefreshControl
 extension MainView {
-     func addRefreshControl() {
+    func addRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }

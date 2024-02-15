@@ -19,7 +19,8 @@ final class MainViewController: UIViewController, MainDisplayLogic {
     var photoViewModels = [PhotoViewModel]()
     var filteredViewModels = [PhotoViewModel]()
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    //MARK: - init(_:)
     init(router: MainRoutingLogic) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +39,7 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         setDelegates()
         setupSearchController()
         fetchRandomPhotoData()
+        setupTapGesture()
     }
     
     private func fetchRandomPhotoData() {
@@ -46,6 +48,8 @@ final class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     private func setupViews() {
+        title = "Главный"
+        view.backgroundColor = .primarySoft
         view.addSubview(mainView)
     }
     
@@ -69,6 +73,15 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
+        searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    @objc private func dismissKeyboard() {
+        if searchController.isActive {
+            searchController.isActive = false
+        } else {
+            view.endEditing(true)
+        }
     }
 }
 
@@ -155,5 +168,14 @@ extension MainViewController: UISearchResultsUpdating {
         
         filteredViewModels = photoViewModels.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         mainView.collectionView.reloadData()
+    }
+}
+
+//MARK: - Tap Gesture
+private extension MainViewController {
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
 }

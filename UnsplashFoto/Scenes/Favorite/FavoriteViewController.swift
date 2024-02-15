@@ -18,7 +18,6 @@ final class FavoriteViewController: UIViewController, DisplayFavoritesLogic {
     var interactor: FavoriteInteractor?
     var router: FavoriteRoutingLogic?
     
-    
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,17 +29,17 @@ final class FavoriteViewController: UIViewController, DisplayFavoritesLogic {
         setupViews()
         setConstraints()
         setDelegates()
-        
     }
     
     private func setupViews() {
+        title = "Избранное"
+        view.backgroundColor = .primarySoft
         view.addSubview(favoriteView)
     }
     
     private func setDelegates() {
         favoriteView.collectionView.delegate = self
         favoriteView.collectionView.dataSource = self
-        //        favoriteView.delegate = self
     }
     
     func displayFavorites(_ favorites: [FavoriteViewModel]) {
@@ -49,7 +48,6 @@ final class FavoriteViewController: UIViewController, DisplayFavoritesLogic {
             self.favoriteView.collectionView.reloadData()
         }
     }
-    
 }
 
 //MARK: - setConstraints()
@@ -80,10 +78,10 @@ extension FavoriteViewController: UICollectionViewDataSource {
         cell.photoImageView.loadImage(from: viewModel.imageUrl)
         
         cell.favoriteButtonAction = { [weak self] in
-                    self?.interactor?.didTapFavoriteButton(viewModel.id, completion: {
-                        self?.showRemovalAlert()
-                    })
-                }
+            self?.interactor?.didTapFavoriteButton(viewModel.id, completion: {
+                self?.showRemovalAlert()
+            })
+        }
         
         return cell
     }

@@ -11,6 +11,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     enum Constants {
         static let photoImageViewTopSpacing: CGFloat = 14.0
         static let photoImageViewLeadingSpacing: CGFloat = 10.0
+        static let photoImageViewSize: CGFloat = 28.0
         static let authorNameLabelTopSpacing: CGFloat = 20.0
         static let authorNameLabelLeadingSpacing: CGFloat = 14.0
         static let downloadsLabelTopSpacing: CGFloat = 10.0
@@ -22,7 +23,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     var favoriteButtonAction: (() -> Void)?
     
     //MARK: - UI
-     let photoImageView: UIImageView = {
+    let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testPhoto")
         imageView.contentMode = .scaleAspectFill
@@ -42,7 +43,6 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     //MARK: - init(_:)
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
         setConstraints()
         favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
@@ -62,9 +62,9 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     @objc private func favoriteButtonTapped() {
         favoriteButtonAction?()
     }
-
 }
 
+//MARK: - setConstraints
 private extension FavoriteCollectionViewCell {
     func setConstraints() {
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -75,9 +75,8 @@ private extension FavoriteCollectionViewCell {
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.photoImageViewTopSpacing),
             photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.photoImageViewLeadingSpacing),
-            photoImageView.heightAnchor.constraint(equalToConstant: 80),
-            photoImageView.widthAnchor.constraint(equalToConstant: 80),
-//            photoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            photoImageView.heightAnchor.constraint(equalToConstant: Constants.photoImageViewSize),
+            photoImageView.widthAnchor.constraint(equalToConstant: Constants.photoImageViewSize),
             
             authorNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.authorNameLabelTopSpacing),
             authorNameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: Constants.authorNameLabelLeadingSpacing),

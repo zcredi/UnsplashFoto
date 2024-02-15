@@ -13,14 +13,15 @@ protocol FavoriteRoutingLogic {
 }
 
 final class FavoriteRouter: NSObject, FavoriteRoutingLogic {
-
+    
     private let factory: SceneFactory
     weak var viewController: FavoriteViewController?
-
+    
+    //MARK: - init(_:)
     init(factory: SceneFactory) {
         self.factory = factory
     }
-
+    
     func routeToDetail(with favoriteViewModel: FavoriteViewModel) {
         // Преобразуйте FavoriteViewModel в PhotoViewModel
         let photoViewModel = PhotoViewModel(
@@ -32,7 +33,7 @@ final class FavoriteRouter: NSObject, FavoriteRoutingLogic {
             location: favoriteViewModel.location,
             downloads: favoriteViewModel.downloads
         )
-
+        
         let detailVC = factory.makeDetailScene(model: photoViewModel, router: self)
         viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }

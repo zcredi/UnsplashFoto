@@ -23,7 +23,7 @@ final class DefaultSceneFactory: SceneFactory {
         let presenter = MainPresenter()
         let networkManager = NetworkService()
         let worker = MainWorker(networkService: networkManager)
-
+        
         router.viewController = viewController
         viewController.interactor = interactor
         interactor.presenter = presenter
@@ -43,19 +43,19 @@ final class DefaultSceneFactory: SceneFactory {
     }
     
     func makeFavoriteScene() -> UIViewController {
-          let networkService = NetworkService()
-          let worker = FavoriteWorker(networkService: networkService)
-          let presenter = FavoritePresenter()
-          let persistenceManager = PersistenceManagerImpl()
-          let interactor = FavoriteInteractor(presenter: presenter, persistenceManager: persistenceManager, worker: worker)
-          let router = FavoriteRouter(factory: self)
-          let viewController = FavoriteViewController()
-          viewController.interactor = interactor
-          viewController.router = router
-          presenter.viewController = viewController
-          router.viewController = viewController
-          return viewController
-      }
-  }
-    
+        let networkService = NetworkService()
+        let worker = FavoriteWorker(networkService: networkService)
+        let presenter = FavoritePresenter()
+        let persistenceManager = PersistenceManagerImpl()
+        let interactor = FavoriteInteractor(presenter: presenter, persistenceManager: persistenceManager, worker: worker)
+        let router = FavoriteRouter(factory: self)
+        let viewController = FavoriteViewController()
+        viewController.interactor = interactor
+        viewController.router = router
+        presenter.viewController = viewController
+        router.viewController = viewController
+        return viewController
+    }
+}
+
 
