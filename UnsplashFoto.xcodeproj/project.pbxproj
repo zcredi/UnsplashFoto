@@ -33,11 +33,15 @@
 		86491BDA2B75398200FF3628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86491BD92B75398200FF3628 /* Assets.xcassets */; };
 		86491BDD2B75398200FF3628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86491BDB2B75398200FF3628 /* LaunchScreen.storyboard */; };
 		86491BF52B7557C100FF3628 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86491BF42B7557C100FF3628 /* MainTabBarController.swift */; };
+		868251442B7CC8830090C638 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868251432B7CC8830090C638 /* FavoriteInteractor.swift */; };
+		868251462B7CD86B0090C638 /* FavoriteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868251452B7CD86B0090C638 /* FavoriteWorker.swift */; };
+		868251482B7CFE3B0090C638 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868251472B7CFE3B0090C638 /* FavoriteRouter.swift */; };
 		869F0F762B78D1C20008BFDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F752B78D1C20008BFDB /* DetailViewController.swift */; };
 		869F0F7A2B78D1E90008BFDB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F792B78D1E90008BFDB /* DetailView.swift */; };
 		869F0F7E2B78E4960008BFDB /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F7D2B78E4960008BFDB /* UILabel + Extension.swift */; };
 		869F0F802B7912930008BFDB /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F7F2B7912930008BFDB /* MainRouter.swift */; };
 		869F0F832B7914A50008BFDB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F0F822B7914A50008BFDB /* DetailPresenter.swift */; };
+		86A1A9162B7BE30B00350039 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1A9152B7BE30B00350039 /* PersistenceManager.swift */; };
 		9915F94040F0D63B2C922D6E /* Pods_UnsplashFoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463C18220CD35CEEB13A990A /* Pods_UnsplashFoto.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,11 +75,15 @@
 		86491BDC2B75398200FF3628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86491BDE2B75398200FF3628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86491BF42B7557C100FF3628 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		868251432B7CC8830090C638 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		868251452B7CD86B0090C638 /* FavoriteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWorker.swift; sourceTree = "<group>"; };
+		868251472B7CFE3B0090C638 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		869F0F752B78D1C20008BFDB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		869F0F792B78D1E90008BFDB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		869F0F7D2B78E4960008BFDB /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		869F0F7F2B7912930008BFDB /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		869F0F822B7914A50008BFDB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		86A1A9152B7BE30B00350039 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		B8B923249497B13E5087539A /* Pods-UnsplashFoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashFoto.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashFoto/Pods-UnsplashFoto.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FF8A20F3E96882652C35FC /* Pods-UnsplashFoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashFoto.release.xcconfig"; path = "Target Support Files/Pods-UnsplashFoto/Pods-UnsplashFoto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +144,9 @@
 				863412022B7A1CED00E636BE /* Views */,
 				86424D0F2B76439900F9E520 /* FavoriteViewController.swift */,
 				8634120A2B7A45E100E636BE /* FavoritePresenter.swift */,
+				868251432B7CC8830090C638 /* FavoriteInteractor.swift */,
+				868251452B7CD86B0090C638 /* FavoriteWorker.swift */,
+				868251472B7CFE3B0090C638 /* FavoriteRouter.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 			children = (
 				86491BEF2B75561100FF3628 /* Netwroks */,
 				86491BF02B75561100FF3628 /* APIModels */,
+				86A1A9152B7BE30B00350039 /* PersistenceManager.swift */,
 			);
 			path = APIManagers;
 			sourceTree = "<group>";
@@ -444,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86424D1C2B76471200F9E520 /* UIFont + Extension.swift in Sources */,
+				868251442B7CC8830090C638 /* FavoriteInteractor.swift in Sources */,
 				863412092B7A380E00E636BE /* DetailInteractor.swift in Sources */,
 				86424D2C2B7667C000F9E520 /* MainView.swift in Sources */,
 				86491BD12B75398100FF3628 /* AppDelegate.swift in Sources */,
@@ -457,9 +470,12 @@
 				86424D222B764CD100F9E520 /* MainPresenter.swift in Sources */,
 				86424D282B76627200F9E520 /* UnsplashPhoto.swift in Sources */,
 				869F0F762B78D1C20008BFDB /* DetailViewController.swift in Sources */,
+				86A1A9162B7BE30B00350039 /* PersistenceManager.swift in Sources */,
 				86424D2E2B7667CD00F9E520 /* MainCollectionViewCell.swift in Sources */,
+				868251462B7CD86B0090C638 /* FavoriteWorker.swift in Sources */,
 				86424D372B768ABC00F9E520 /* SceneFactory.swift in Sources */,
 				86491BF52B7557C100FF3628 /* MainTabBarController.swift in Sources */,
+				868251482B7CFE3B0090C638 /* FavoriteRouter.swift in Sources */,
 				869F0F832B7914A50008BFDB /* DetailPresenter.swift in Sources */,
 				86424D1E2B764A1500F9E520 /* UIColor + Extensions.swift in Sources */,
 				86424D342B76869F00F9E520 /* UIImageView + Extension.swift in Sources */,
