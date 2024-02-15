@@ -13,12 +13,12 @@ let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     func loadImage(from urlString: String) {
         let urlKey = NSString(string: urlString)
-
+        
         if let cachedImage = imageCache.object(forKey: urlKey) {
             self.image = cachedImage
             return
         }
-
+        
         AF.request(urlString).responseData { [weak self] response in
             if let error = response.error {
                 print("Ошибка при загрузке изображения: \(error)")

@@ -26,6 +26,6 @@ final class FavoritePresenter: FavoritePresentationLogic {
     private var viewModel: FavoriteViewModel?
     
     func presentFavorites(_ favorites: [FavoriteViewModel]) {
-           viewController?.displayFavorites(favorites)
-       }
+        viewController?.displayFavorites(favorites)
+    }
 }

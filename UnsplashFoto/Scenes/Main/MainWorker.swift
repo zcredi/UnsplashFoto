@@ -26,7 +26,7 @@ final class MainWorker: MainWorkerProtocol {
         let request = AF.request(url)
         
         request.responseDecodable(of: [UnsplashPhoto].self) { response in
-//            self.logResponse(response)
+            //self.logResponse(response)
             
             switch response.result {
             case .success(let photos):

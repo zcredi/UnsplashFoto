@@ -18,7 +18,8 @@ protocol PersistenceManager: AnyObject {
 final class PersistenceManagerImpl: PersistenceManager {
     private let favoritesKey = "favoritesKey"
     private let userDefaults: UserDefaults
-        
+    
+    //MARK: - init(_:)
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
     }

@@ -30,7 +30,7 @@ struct UnsplashPhoto: Codable {
     let downloads: Int?
     let tags: [Tag]?
     let tagsPreview: [TagPreview]?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, slug, width, height, color, description, urls, links, likes, user, exif, location, views, downloads, tags
         case createdAt = "created_at"
@@ -50,7 +50,7 @@ struct PhotoUrls: Codable {
     let small: String
     let thumb: String
     let smallS3: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case raw, full, regular, small, thumb
         case smallS3 = "small_s3"
@@ -62,7 +62,7 @@ struct PhotoLinks: Codable {
     let html: String
     let download: String
     let downloadLocation: String
-
+    
     enum CodingKeys: String, CodingKey {
         case selfLink = "self"
         case html, download
@@ -90,7 +90,7 @@ struct User: Codable {
     let accepted_tos: Bool
     let for_hire: Bool
     let social: UserSocial
-
+    
     enum CodingKeys: String, CodingKey {
         case id, username, name, location, links, bio
         case updatedAt = "updated_at"
@@ -106,7 +106,7 @@ struct UserLinks: Codable {
     let portfolio: String
     let following: String
     let followers: String
-
+    
     enum CodingKeys: String, CodingKey {
         case selfLink = "self"
         case html, photos, likes, portfolio, following, followers
@@ -133,7 +133,7 @@ struct Exif: Codable {
     let aperture: String?
     let focalLength: String?
     let iso: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case make, model
         case exposureTime = "exposure_time"

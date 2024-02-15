@@ -32,7 +32,7 @@ final class FavoriteInteractor: FavoriteBusinessLogic {
         
         var favoriteViewModels = [FavoriteViewModel]()
         let dispatchGroup = DispatchGroup()
-
+        
         for id in favoritesIds {
             dispatchGroup.enter()
             worker.fetchPhotoDetails(by: id) { [weak self] result in
@@ -61,12 +61,12 @@ final class FavoriteInteractor: FavoriteBusinessLogic {
     }
     
     func didTapFavoriteButton(_ id: String, completion: (() -> Void)?) {
-           if persistenceManager.favorites()?.contains(id) == true {
-               persistenceManager.removeFromFavorites(id: id)
-                   .map { [weak self] _ in
-                       self?.fetchFavorites()
-                       completion?() 
-                   }
-           }
-       }
+        if persistenceManager.favorites()?.contains(id) == true {
+            persistenceManager.removeFromFavorites(id: id)
+                .map { [weak self] _ in
+                    self?.fetchFavorites()
+                    completion?()
+                }
+        }
+    }
 }

@@ -14,23 +14,24 @@ protocol FavoriteWorkerProtocol {
 
 final class FavoriteWorker: FavoriteWorkerProtocol {
     private let networkService: NetworkService
-
+    
+    //MARK: - init(_:)
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
-
+    
     func fetchPhotoDetails(by id: String, completion: @escaping (Result<UnsplashPhoto, Error>) -> Void) {
-            let url = "https://api.unsplash.com/photos/\(id)?client_id=\(Configuration.unsplashAccessKey)"
-            AF.request(url).responseDecodable(of: UnsplashPhoto.self) { response in
-//                self.logResponse(response)
-                switch response.result {
-                case .success(let photo):
-                    completion(.success(photo))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+        let url = "https://api.unsplash.com/photos/\(id)?client_id=\(Configuration.unsplashAccessKey)"
+        AF.request(url).responseDecodable(of: UnsplashPhoto.self) { response in
+            //                self.logResponse(response)
+            switch response.result {
+            case .success(let photo):
+                completion(.success(photo))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
+    }
 }
 
 //MARK: - Logging Response

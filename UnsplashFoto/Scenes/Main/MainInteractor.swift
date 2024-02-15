@@ -16,14 +16,14 @@ final class MainInteractor: MainBusinessLogic {
     var worker: MainWorkerProtocol?
     
     func fetchRandomPhotos() {
-           worker?.fetchRandomPhotos { [weak self] result in
-               switch result {
-               case .success(let photos):
-                   print("Успешно получены фотографии: \(photos.count)")
-                   self?.presenter?.presentFetchedPhotos(photos)
-               case .failure(let error):
-                   print("Ошибка при получении фотографий: \(error)")
-               }
-           }
-       }
+        worker?.fetchRandomPhotos { [weak self] result in
+            switch result {
+            case .success(let photos):
+                print("Успешно получены фотографии: \(photos.count)")
+                self?.presenter?.presentFetchedPhotos(photos)
+            case .failure(let error):
+                print("Ошибка при получении фотографий: \(error)")
+            }
+        }
+    }
 }
