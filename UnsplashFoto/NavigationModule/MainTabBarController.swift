@@ -50,7 +50,7 @@ final class MainTabBarController: UITabBarController {
         let mainNavController = UINavigationController(rootViewController: mainVC)
         mainNavController.tabBarItem = UITabBarItem(title: "Main", image: UIImage(named: "mainTabBar"), tag: 0)
         
-        let favoriteVC = FavoriteViewController()
+        let favoriteVC = sceneFactory.makeFavoriteScene()
         let favoriteNavController = UINavigationController(rootViewController: favoriteVC)
         favoriteNavController.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(named: "favoriteTabBar"), tag: 1)
         

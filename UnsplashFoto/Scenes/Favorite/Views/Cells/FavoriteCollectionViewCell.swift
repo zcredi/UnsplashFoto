@@ -20,7 +20,6 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     }
     
     var favoriteButtonAction: (() -> Void)?
-
     
     //MARK: - UI
      let photoImageView: UIImageView = {
@@ -33,7 +32,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     
     lazy var favoriteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "heart")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        button.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
         return button
     }()
     
@@ -46,6 +45,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
         
         setupViews()
         setConstraints()
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -58,6 +58,11 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
         addSubview(downloadsLabel)
         addSubview(favoriteButton)
     }
+    
+    @objc private func favoriteButtonTapped() {
+        favoriteButtonAction?()
+    }
+
 }
 
 private extension FavoriteCollectionViewCell {
@@ -70,7 +75,9 @@ private extension FavoriteCollectionViewCell {
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.photoImageViewTopSpacing),
             photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.photoImageViewLeadingSpacing),
-            photoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            photoImageView.heightAnchor.constraint(equalToConstant: 80),
+            photoImageView.widthAnchor.constraint(equalToConstant: 80),
+//            photoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             authorNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.authorNameLabelTopSpacing),
             authorNameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: Constants.authorNameLabelLeadingSpacing),

@@ -16,12 +16,16 @@ struct FavoriteViewModel {
     let authorName: String
     let imageUrl: String
     let downloads: Int
+    let profilImage: String
+    let createdAt: String
+    let location: String
 }
 
 final class FavoritePresenter: FavoritePresentationLogic {
-     var viewController: DisplayFavoritesLogic?
+    var viewController: DisplayFavoritesLogic?
+    private var viewModel: FavoriteViewModel?
     
     func presentFavorites(_ favorites: [FavoriteViewModel]) {
-        viewController?.displayFavorites(favorites)
-    }
+           viewController?.displayFavorites(favorites)
+       }
 }

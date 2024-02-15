@@ -8,7 +8,8 @@
 import UIKit
 
 protocol DetailDisplayLogic: AnyObject {
-    func displayPhotoDetails(_ viewModel: PhotoViewModel)
+    func displayPhotoDetails(_ viewModel: DetailViewModel)
+    func showAlert(isFavorite: Bool)
 }
 
 final class DetailViewController: UIViewController, DetailDisplayLogic {
@@ -18,10 +19,18 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         static let detailViewHeightSpacing: CGFloat = 370.0
     }
     
-    var interactor: DetailBusinessLogic?
-    var photoViewModel: PhotoViewModel?
-    
+    private let interactor: DetailBusinessLogic
+    private var id: String?
     private let detailView = DetailView()
+    
+    init(interactor: DetailBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,6 +39,7 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         setupViews()
         setConstraints()
         detailView.favoriteButton.addTarget(self, action: #selector(tappedFavoriteButton), for: .touchUpInside)
+        interactor.viewDidLoad()
     }
     
     private func setupViews() {
@@ -37,7 +47,8 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         view.addSubview(detailView)
     }
     
-    func displayPhotoDetails(_ viewModel: PhotoViewModel) {
+    func displayPhotoDetails(_ viewModel: DetailViewModel) {
+        self.id = viewModel.modelId
         detailView.authorImageView.loadImage(from: viewModel.profilImage)
         detailView.authorNameLabel.text = viewModel.name
         detailView.photoImageView.loadImage(from: viewModel.imageUrl)
@@ -45,15 +56,12 @@ final class DetailViewController: UIViewController, DetailDisplayLogic {
         let locationText = viewModel.location.isEmpty ? "Не указано" : viewModel.location
         detailView.locationLabel.text = ("Город: \(locationText)")
         detailView.downloadsLabel.text = ("Скачали: \(viewModel.downloads) раз")
+        detailView.favoriteButton.isSelected = viewModel.isFavorite
     }
     
     @objc private func tappedFavoriteButton() {
-        if let photoViewModel = photoViewModel {
-                interactor?.handleFavoriteButtonTap(photoViewModel: photoViewModel)
-                print("Favorite button tapped for photo: \(photoViewModel.id)")
-            } else {
-                print("PhotoViewModel is nil")
-            }
+        let isAddingToFavorites = !detailView.favoriteButton.isSelected
+        self.id.flatMap { interactor.didTapFavoriteButton($0, isAddingToFavorites: isAddingToFavorites) }
     }
 }
 
@@ -85,5 +93,15 @@ private extension DetailViewController {
         } else {
             return ""
         }
+    }
+}
+
+//MARK: - Alert
+extension DetailViewController {
+    func showAlert(isFavorite: Bool) {
+        let message = isFavorite ? "Добавлено в избранное" : "Удалено из избранного"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

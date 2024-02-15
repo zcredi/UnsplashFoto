@@ -13,12 +13,22 @@ protocol MainDisplayLogic: AnyObject {
 
 final class MainViewController: UIViewController, MainDisplayLogic {
     var interactor: MainBusinessLogic?
-    var router: MainRoutingLogic?
+    let router: MainRoutingLogic
     
     var mainView = MainView()
     var photoViewModels = [PhotoViewModel]()
     var filteredViewModels = [PhotoViewModel]()
     let searchController = UISearchController(searchResultsController: nil)
+
+    init(router: MainRoutingLogic) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,7 +38,6 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         setDelegates()
         setupSearchController()
         fetchRandomPhotoData()
-        router = MainRouter(viewController: self)
     }
     
     private func fetchRandomPhotoData() {
@@ -124,7 +133,7 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedPhoto = photoViewModels[indexPath.row]
         searchController.isActive = false
-        router?.routeToDetail(with: selectedPhoto)
+        router.routeToDetail(with: selectedPhoto)
     }
 }
 

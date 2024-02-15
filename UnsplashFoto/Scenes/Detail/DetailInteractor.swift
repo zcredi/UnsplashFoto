@@ -8,19 +8,45 @@
 import Foundation
 
 protocol DetailBusinessLogic {
-    func handleFavoriteButtonTap(photoViewModel: UnsplashPhoto)
+    func viewDidLoad()
+    func didTapFavoriteButton(_ id: String, isAddingToFavorites: Bool)
 }
 
 final class DetailInteractor: DetailBusinessLogic {
-    var presenter: DetailPresentationLogic?
+    private let persistenceManager: PersistenceManager
+    private let presenter: DetailPresentationLogic
+    private var model: PhotoViewModel
     
-    func handleFavoriteButtonTap(photoViewModel: UnsplashPhoto) {
-        let favoritePhoto = FavoritePhoto(id: photoViewModel.id, imageUrl: photoViewModel.user.profile_image.small, authorName: photoViewModel.user.name, downloadCount: photoViewModel.downloads)
-        
-        if FavoritesManager.shared.getFavorites().contains(where: { $0.id == photoViewModel.id }) {
-            FavoritesManager.shared.removeFavorite(photoId: photoViewModel.id ?? "")
-        } else {
-            FavoritesManager.shared.addFavorite(photo: favoritePhoto)
+    init(
+        presenter: DetailPresentationLogic,
+        persistenceManager: PersistenceManager,
+        model: PhotoViewModel
+    ) {
+        self.persistenceManager = persistenceManager
+        self.presenter = presenter
+        self.model = model
+    }
+    
+    func viewDidLoad() {
+        self.presenter.presentPhotoDetails(
+            with: model,
+            isFavorite: persistenceManager.favorites()?.contains(model.id) ?? false
+        )
+    }
+    
+    func didTapFavoriteButton(_ id: String, isAddingToFavorites: Bool) {
+        if persistenceManager.favorites()?.contains(id) == true {
+            persistenceManager.removeFromFavorites(id: id)
+                .map { _ in
+                    presenter.setPhoto(isFavorite: false)
+                    presenter.showAlert(isFavorite: false)
+                }
+            return
         }
+        persistenceManager.saveToFavorites(id: id)
+            .map { _ in
+                presenter.setPhoto(isFavorite: true)
+                presenter.showAlert(isFavorite: true) 
+            }
     }
 }

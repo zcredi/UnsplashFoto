@@ -12,21 +12,16 @@ protocol MainRoutingLogic {
 }
 
 final class MainRouter: NSObject, MainRoutingLogic {
+    private let factory: SceneFactory
     weak var viewController: MainViewController?
     
     //MARK: - init(_:)
-    init(viewController: MainViewController) {
-        self.viewController = viewController
+    init(factory: SceneFactory) {
+        self.factory = factory
     }
     
     func routeToDetail(with photoViewModel: PhotoViewModel) {
-        let detailVC = DetailViewController()
-        let presenter = DetailPresenter()
-        let interactor = DetailInteractor()
-        detailVC.interactor = interactor
-        interactor.presenter = presenter
-        presenter.viewController = detailVC
-        presenter.presentPhotoDetails(with: photoViewModel)
+        let detailVC = factory.makeDetailScene(model: photoViewModel, router: self)
         viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

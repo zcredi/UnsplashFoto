@@ -43,7 +43,9 @@ final class DetailView: UIView {
     
     lazy var favoriteButton: UIButton = {
         let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .selected)
         button.setImage(UIImage(systemName: "heart")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        button.tintColor = UIColor.clear
         return button
     }()
     
@@ -100,6 +102,7 @@ final class DetailView: UIView {
             favoriteButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.favoriteButtonTopSpacing),
             favoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.favoriteButtonTrailingSpacing),
             favoriteButton.heightAnchor.constraint(equalToConstant: Constants.favoriteButtonSize),
+            favoriteButton.widthAnchor.constraint(equalToConstant: Constants.favoriteButtonSize),
             
             authorImageView.topAnchor.constraint(equalTo: topAnchor, constant: -Constants.authorImageViewSize / 2),
             authorImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
