@@ -11,7 +11,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     enum Constants {
         static let photoImageViewTopSpacing: CGFloat = 14.0
         static let photoImageViewLeadingSpacing: CGFloat = 10.0
-        static let photoImageViewSize: CGFloat = 28.0
+        static let photoImageViewSize: CGFloat = 80.0
         static let authorNameLabelTopSpacing: CGFloat = 20.0
         static let authorNameLabelLeadingSpacing: CGFloat = 14.0
         static let downloadsLabelTopSpacing: CGFloat = 10.0
