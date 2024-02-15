@@ -48,7 +48,7 @@ final class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     private func setupViews() {
-        title = "Главный"
+        title = "Главная"
         view.backgroundColor = .primarySoft
         view.addSubview(mainView)
     }
@@ -74,6 +74,11 @@ final class MainViewController: UIViewController, MainDisplayLogic {
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         searchController.obscuresBackgroundDuringPresentation = false
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.textColor = .white
+            textField.backgroundColor = .lightGray
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        }
     }
     
     @objc private func dismissKeyboard() {
